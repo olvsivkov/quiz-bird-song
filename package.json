@@ -1,0 +1,24 @@
+{
+  "name": "quiz-bird-song",
+  "version": "1.0.0",
+  "description": "place for deploy link",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olvsivkov/quiz-bird-song.git"
+  },
+  "author": "Sivkov Oleg <1000listov@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olvsivkov/quiz-bird-song/issues"
+  },
+  "homepage": "https://github.com/olvsivkov/quiz-bird-song#readme",
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
