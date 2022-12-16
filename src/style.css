@@ -96,6 +96,7 @@ body{
 
   .correct-bird-name{
     padding-left: 5%;
+    margin-bottom: 0;
   }
   
   .answer-wrapper {
@@ -316,7 +317,7 @@ body{
 
     .footer{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }  
 
     .media-item{
@@ -334,3 +335,36 @@ body{
         width: 90%;
       }
   }
+
+.audio-wrapper {
+  margin: auto;
+}
+
+.audio-track {
+  width: auto;
+  height: 7px;
+  background-color: #dddddd;
+  margin: 20px 0 0 20px;
+}
+
+.time {
+  width: 0;
+  height: 7px;
+  background-color: #220202
+}
+
+.play {
+  height: auto;
+  cursor: pointer;
+}
+
+#controls {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+@media (max-width: 600px) {
+  #controls {
+      display: block;
+    }
+}

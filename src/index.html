@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+  <link rel = "stylesheet" href = " https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css ">
   <title>Document</title>
 </head>
 <body>
@@ -32,12 +33,18 @@
           <div class="bird-song">
             <h1 class="correct-bird-name">* * * * *</h1>
             <figure>
-              <audio class="audio"
-                  controls="controls"
-                  src="">
-                      <a href=""></a>
+              <audio class="audio"src=""><a href=""></a>
               </audio>
-          </figure>
+                <div class="audio-wrapper">
+                  <div id="controls">
+                    <div class="play">
+                      <i class = "fa fa-play-circle fa-5x"></i>
+                    </div>
+                    <div class="audio-track"><div class="time"></div></div>
+                  </div>
+                </div>
+            </audio>
+            </figure>
           </div>
         </div>
         <div class="answer-wrapper">
@@ -86,7 +93,6 @@
     </section>
     <footer class="footer">
         <div class="footer-item "><span class="first-span"> <a class="nav-link media-item" href="https://github.com/olvsivkov" target="_blank"> &copy; 2022  github</a></span></div>
-        <div class="footer-item"><span class="second-span"> <a class="nav-link media-item" href="https://app.rs.school/" target="_blank">Rolling Scopes School</a></span></div>
     </footer>
 <script src="../dist/main.js"></script>
 </body>
