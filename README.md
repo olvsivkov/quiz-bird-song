@@ -1,2 +1,2 @@
 # quiz-bird-song
-place for deploy link
+https://olvsivkov.github.io/quiz-bird-song/src/
