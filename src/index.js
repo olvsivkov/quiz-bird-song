@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-return-assign */
 /* eslint-disable consistent-return */
 /* eslint-disable no-use-before-define */
@@ -61,9 +62,9 @@ submit.addEventListener('click', () => {
     }
   } else {
     loadQuiz();
-    randomNumOtherPage = randomInteger(); // !!!
-    console.log(`correct answer ${randomNumOtherPage}`); // !!!
-    audio.src = getSongs(currentQuiz, randomNumOtherPage); // !!
+    randomNumOtherPage = randomInteger();
+    console.log(`correct answer ${randomNumOtherPage}`);
+    audio.src = getSongs(currentQuiz, randomNumOtherPage);
     activeLights();
     sourceImg.src = unknownBird;
     correctBirdName.innerHTML = '* * * * *';
@@ -87,7 +88,7 @@ function loadQuiz() {
   e_text.innerText = getBirdName(currentQuiz, 5);
   f_text.innerText = getBirdName(currentQuiz, 6);
   if (score === 0) {
-    audio.src = getSongs(currentQuiz, randomNumFirstPage); // !!!
+    audio.src = getSongs(currentQuiz, randomNumFirstPage);
   }
 }
 
@@ -97,7 +98,7 @@ list.forEach((el) => el.addEventListener('click', () => { // если выбра
   function getSelected() {
     return el.id;
   }
-  if (randomNumFirstPage === +getSelected() || randomNumOtherPage === +getSelected()) { // !!!
+  if (randomNumFirstPage === +getSelected() || randomNumOtherPage === +getSelected()) {
     score += 1;
     userScore.innerHTML = `scores ${score} / 6`;
     sourceImg.src = getBirdImg(currentQuiz, +getSelected());
