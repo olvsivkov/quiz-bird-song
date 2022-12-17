@@ -31,22 +31,58 @@ const btnPlay = document.querySelector('.play');
 let score = 0;
 let currentQuiz = 0;
 const randomNumFirstPage = randomInteger();
-let randomNumOtherPage; // !!1
+let randomNumOtherPage; 
 const unknownBird = 'https://birds-quiz.netlify.app/static/media/bird.06a46938.jpg';
 console.log(`correct answer ${randomNumFirstPage}`);
 
-// answers
+// === load first page data
 
-loadQuiz();
-
-// === header lights ===
-
-function activeLights() {
-  for (let i = 0; i <= 5; i += 1) {
-    birdBlocks[i].classList.remove('active');
-    birdBlocks[currentQuiz].classList.add('active');
+function loadQuiz() {
+  deselectAnswers();
+  a_text.innerText = getBirdName(currentQuiz, 1);
+  b_text.innerText = getBirdName(currentQuiz, 2);
+  c_text.innerText = getBirdName(currentQuiz, 3);
+  d_text.innerText = getBirdName(currentQuiz, 4);
+  e_text.innerText = getBirdName(currentQuiz, 5);
+  f_text.innerText = getBirdName(currentQuiz, 6);
+  if (score === 0) {
+    audio.src = getSongs(currentQuiz, randomNumFirstPage);
   }
 }
+loadQuiz();
+
+// === actions with button play ===
+
+btnPlay.addEventListener('click', actionsBtnPlay);
+
+// === if answer correct/noncorrect ===
+
+list.forEach((el) => el.addEventListener('click', () => {
+  function getSelected() {
+    return el.id;
+  }
+  if (randomNumFirstPage === +getSelected() || randomNumOtherPage === +getSelected()) {
+    score += 1;
+    userScore.innerHTML = `scores ${score} / 6`;
+    sourceImg.src = getBirdImg(currentQuiz, +getSelected());
+    correctBirdName.innerHTML = getBirdName(currentQuiz, +getSelected());
+    el.classList.add('active-list');
+    console.log('Correct!');
+  } else {
+    console.log('No!');
+    el.classList.add('active-list-none');
+  }
+}));
+
+// === get birds content after answer ===
+
+list.forEach((elem) => elem.addEventListener('click', () => {
+  const numberId = Number(elem.id);
+  imgData.innerHTML = `<img class="source-img" src="${getBirdImg(currentQuiz, numberId)}" alt="target bird">`;
+  birdsNameData.innerText = getBirdName(currentQuiz, numberId);
+  latinNameData.innerText = getLatinData(currentQuiz, numberId);
+  footerDescription.innerText = getDescriptionData(currentQuiz, numberId);
+}));
 
 // === submit ===
 
@@ -66,12 +102,7 @@ submit.addEventListener('click', () => {
     console.log(`correct answer ${randomNumOtherPage}`);
     audio.src = getSongs(currentQuiz, randomNumOtherPage);
     activeLights();
-    sourceImg.src = unknownBird;
-    correctBirdName.innerHTML = '* * * * *';
-    imgData.innerHTML = '';
-    birdsNameData.innerText = '';
-    latinNameData.innerText = '';
-    footerDescription.innerText = '';
+    getEmptyBirdData();
     list.forEach((elem) => elem.classList.remove('active-list'));
     list.forEach((elem) => elem.classList.remove('active-list-none'));
     btnPlay.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
@@ -79,49 +110,24 @@ submit.addEventListener('click', () => {
   }
 });
 
-function loadQuiz() {
-  deselectAnswers();
-  a_text.innerText = getBirdName(currentQuiz, 1);
-  b_text.innerText = getBirdName(currentQuiz, 2);
-  c_text.innerText = getBirdName(currentQuiz, 3);
-  d_text.innerText = getBirdName(currentQuiz, 4);
-  e_text.innerText = getBirdName(currentQuiz, 5);
-  f_text.innerText = getBirdName(currentQuiz, 6);
-  if (score === 0) {
-    audio.src = getSongs(currentQuiz, randomNumFirstPage);
+
+// === functions ===
+
+function activeLights() { // отображать цветом правильный / не правильный ответы.
+  for (let i = 0; i <= 5; i += 1) {
+    birdBlocks[i].classList.remove('active');
+    birdBlocks[currentQuiz].classList.add('active');
   }
 }
 
-// === correct answer ===
-
-list.forEach((el) => el.addEventListener('click', () => { // если выбран верный ответ в консоли УРА! answerel
-  function getSelected() {
-    return el.id;
-  }
-  if (randomNumFirstPage === +getSelected() || randomNumOtherPage === +getSelected()) {
-    score += 1;
-    userScore.innerHTML = `scores ${score} / 6`;
-    sourceImg.src = getBirdImg(currentQuiz, +getSelected());
-    correctBirdName.innerHTML = getBirdName(currentQuiz, +getSelected());
-    el.classList.add('active-list');
-    console.log('Correct!');
-  } else {
-    console.log('No!');
-    el.classList.add('active-list-none');
-  }
-}));
-
-// === birds content ===
-
-list.forEach((elem) => elem.addEventListener('click', () => {
-  const numberId = Number(elem.id);
-  imgData.innerHTML = `<img class="source-img" src="${getBirdImg(currentQuiz, numberId)}" alt="target bird">`;
-  birdsNameData.innerText = getBirdName(currentQuiz, numberId);
-  latinNameData.innerText = getLatinData(currentQuiz, numberId);
-  footerDescription.innerText = getDescriptionData(currentQuiz, numberId);
-}));
-
-// === functions ===
+function getEmptyBirdData(){ // сделать поля с информацией о птицах пустыми
+  sourceImg.src = unknownBird;
+  correctBirdName.innerHTML = '* * * * *';
+  imgData.innerHTML = '';
+  birdsNameData.innerText = '';
+  latinNameData.innerText = '';
+  footerDescription.innerText = '';
+}
 
 // eslint-disable-next-line no-shadow
 function localFunc(birdsData, index, targetNum) { // выбирает нужный индекс в файле с птицами
@@ -154,12 +160,12 @@ function deselectAnswers() {
   answerElements.forEach((answerEl) => answerEl.checked = false);
 }
 
-function randomInteger(min = 1, max = 6) {
+function randomInteger(min = 1, max = 6) { // дать рандомное число от 1 до 6
   const rand = min - 0.5 + Math.random() * (max - min + 1);
   return Math.round(rand);
 }
 
-// audio scripts
+// audio functions
 
 function showAudioTime() {
   return setInterval(() => {
@@ -169,7 +175,7 @@ function showAudioTime() {
   });
 }
 
-btnPlay.addEventListener('click', () => {
+function actionsBtnPlay() {
   if (btnPlay.classList.contains('pause') === false) {
     audio.play();
     showAudioTime();
@@ -180,4 +186,6 @@ btnPlay.addEventListener('click', () => {
     btnPlay.classList.remove('pause');
     btnPlay.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
   }
-});
+}
+
+
