@@ -31,7 +31,7 @@ const btnPlay = document.querySelector('.play');
 let score = 0;
 let currentQuiz = 0;
 const randomNumFirstPage = randomInteger();
-let randomNumOtherPage; 
+let randomNumOtherPage;
 const unknownBird = 'https://birds-quiz.netlify.app/static/media/bird.06a46938.jpg';
 console.log(`correct answer ${randomNumFirstPage}`);
 
@@ -110,7 +110,6 @@ submit.addEventListener('click', () => {
   }
 });
 
-
 // === functions ===
 
 function activeLights() { // отображать цветом правильный / не правильный ответы.
@@ -120,7 +119,7 @@ function activeLights() { // отображать цветом правильн�
   }
 }
 
-function getEmptyBirdData(){ // сделать поля с информацией о птицах пустыми
+function getEmptyBirdData() { // сделать поля с информацией о птицах пустыми
   sourceImg.src = unknownBird;
   correctBirdName.innerHTML = '* * * * *';
   imgData.innerHTML = '';
@@ -187,5 +186,3 @@ function actionsBtnPlay() {
     btnPlay.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
   }
 }
-
-

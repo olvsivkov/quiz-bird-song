@@ -3,7 +3,19 @@ const path = require('path'); // <- сохраняем в константу pat
 
 module.exports = {
   plugins: [new ESLintPlugin()],
-  entry: './src/index.js', // <- откуда webpack будет брать данные для сборки
+  entry: './src/index.ts', // <- откуда webpack будет брать данные для сборки
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   output: {
     filename: 'bandle.js', // <- где будет происходить сборка проекта
     path: path.resolve(__dirname, 'dist'), // <- в какой папке будет происходить сохранение "bandle.js"
