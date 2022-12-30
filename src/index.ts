@@ -6,7 +6,7 @@
 /* eslint-disable no-undef */
 import { birdsData } from './quizData';
 
-const quiz = document.getElementById('quiz');
+const quiz = document.getElementById('quiz')
 const a_text = document.getElementById('a_text');
 const b_text = document.getElementById('b_text');
 const c_text = document.getElementById('c_text');
@@ -135,23 +135,23 @@ function localFunc(birdsData, index, targetNum) { // выбирает нужны
 
 // eslint-disable-next-line consistent-return
 function getDescriptionData(index, targetNum) { // выводит описание птицы
-  if (currentQuiz < 6) return localFunc(birdsData, index, targetNum).description;
+  if (currentQuiz < 6) { return localFunc(birdsData, index, targetNum).description }
 }
 
 function getLatinData(index, targetNum) { // выводит латинское имя птицы
-  if (currentQuiz < 6) return localFunc(birdsData, index, targetNum).species;
+  if (currentQuiz < 6) { return localFunc(birdsData, index, targetNum).species }
 }
 
 function getBirdImg(index, targetNum) { // выводит фото птицы
-  if (currentQuiz < 6) return localFunc(birdsData, index, targetNum).image;
+  if (currentQuiz < 6) { return localFunc(birdsData, index, targetNum).image }
 }
 
 function getBirdName(index, targetNum) { // выводит имя птицы
-  if (currentQuiz < 6) return localFunc(birdsData, index, targetNum).name;
+  if (currentQuiz < 6) { return localFunc(birdsData, index, targetNum).name }
 }
 
 function getSongs(index, targetNum) { // выводить голос птицы на аудио
-  if (currentQuiz < 6) return localFunc(birdsData, index, targetNum).audio;
+  if (currentQuiz < 6) { return localFunc(birdsData, index, targetNum).audio }
 }
 
 function deselectAnswers() {
