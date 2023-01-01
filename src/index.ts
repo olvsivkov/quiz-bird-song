@@ -4,6 +4,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable camelcase */
 /* eslint-disable no-undef */
+
 import { birdsData } from './quizData';
 
 const quiz = document.getElementById('quiz')
@@ -14,24 +15,24 @@ const d_text = document.getElementById('d_text');
 const e_text = document.getElementById('e_text');
 const f_text = document.getElementById('f_text');
 const submit = document.getElementById('submit');
-const audio = document.querySelector('.audio');
+const audio: HTMLAudioElement = document.querySelector('.audio');
 const userScore = document.querySelector('.score');
-const answerElements = document.querySelectorAll('.answer');
-const sourceImg = document.querySelector('.source-img');
+const answerElements: NodeListOf<HTMLInputElement> = document.querySelectorAll('.answer');
+const sourceImg: HTMLImageElement = document.querySelector('.source-img');
 const correctBirdName = document.querySelector('.correct-bird-name');
 const list = document.querySelectorAll('.list');
 const imgData = document.querySelector('.imgData');
-const birdsNameData = document.querySelector('.birdsNameData');
-const latinNameData = document.querySelector('.latinNameData');
-const footerDescription = document.querySelector('.footerDescription');
+const birdsNameData: HTMLDivElement = document.querySelector('.birdsNameData');
+const latinNameData: HTMLDivElement = document.querySelector('.latinNameData');
+const footerDescription: HTMLDivElement = document.querySelector('.footerDescription');
 const birdBlocks = document.querySelectorAll('.birds-blocks');
-const time = document.querySelector('.time');
+const time: HTMLDivElement = document.querySelector('.time');
 const btnPlay = document.querySelector('.play');
 
 let score = 0;
 let currentQuiz = 0;
-const randomNumFirstPage = randomInteger();
-let randomNumOtherPage;
+const randomNumFirstPage: number = randomInteger();
+let randomNumOtherPage: number;
 const unknownBird = 'https://birds-quiz.netlify.app/static/media/bird.06a46938.jpg';
 console.log(`correct answer ${randomNumFirstPage}`);
 
@@ -129,28 +130,29 @@ function getEmptyBirdData() { // сделать поля с информацие
 }
 
 // eslint-disable-next-line no-shadow
-function localFunc(birdsData, index, targetNum) { // выбирает нужный индекс в файле с птицами
+
+function localFunc(birdsData: { id: number; name: string; species: string; description: string; image: string; audio: string; }[][], index: number, targetNum: number) { // выбирает нужный индекс в файле с птицами
   return birdsData[index].find((x) => x.id === targetNum);
 }
 
 // eslint-disable-next-line consistent-return
-function getDescriptionData(index, targetNum) { // выводит описание птицы
+function getDescriptionData(index: number, targetNum: number) { // выводит описание птицы
   if (currentQuiz < 6) { return localFunc(birdsData, index, targetNum).description }
 }
 
-function getLatinData(index, targetNum) { // выводит латинское имя птицы
+function getLatinData(index: number, targetNum: number) { // выводит латинское имя птицы
   if (currentQuiz < 6) { return localFunc(birdsData, index, targetNum).species }
 }
 
-function getBirdImg(index, targetNum) { // выводит фото птицы
+function getBirdImg(index: number, targetNum: number) { // выводит фото птицы
   if (currentQuiz < 6) { return localFunc(birdsData, index, targetNum).image }
 }
 
-function getBirdName(index, targetNum) { // выводит имя птицы
+function getBirdName(index: number, targetNum: number) { // выводит имя птицы
   if (currentQuiz < 6) { return localFunc(birdsData, index, targetNum).name }
 }
 
-function getSongs(index, targetNum) { // выводить голос птицы на аудио
+function getSongs(index: number, targetNum: number) { // выводить голос птицы на аудио
   if (currentQuiz < 6) { return localFunc(birdsData, index, targetNum).audio }
 }
 
