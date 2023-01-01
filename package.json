@@ -1,0 +1,36 @@
+{
+  "name": "quiz-bird-song",
+  "version": "1.0.0",
+  "description": "place for deploy link",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olvsivkov/quiz-bird-song.git"
+  },
+  "author": "Sivkov Oleg <1000listov@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olvsivkov/quiz-bird-song/issues"
+  },
+  "homepage": "https://github.com/olvsivkov/quiz-bird-song#readme",
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.19.1",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "eslint": "^8.30.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-webpack-plugin": "^3.2.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}

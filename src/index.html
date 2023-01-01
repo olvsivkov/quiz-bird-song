@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+  <link rel = "stylesheet" href = " https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css ">
+  <title>Document</title>
+</head>
+<body>
+    <section id="quiz">
+        <div class="score-wrapper">
+            <div class="score">scores 0 / 6</div>
+            <h1 class="song-title">Song birds</h1>
+        </div>
+        <div class="header">
+            <div class="birds-blocks active">Разминка</div>
+            <div class="birds-blocks">Воробьиные</div>
+            <div class="birds-blocks">Лесные птицы</div>
+            <div class="birds-blocks">Певчие птицы</div>
+            <div class="birds-blocks">Хищные птицы</div>
+            <div class="birds-blocks">Морские птицы</div>
+        </div>
+        <div class="song">
+          <div class="bird-img">
+            <img class="source-img" src="https://birds-quiz.netlify.app/static/media/bird.06a46938.jpg" alt="target bird">
+          </div>
+          <div class="bird-song">
+            <h1 class="correct-bird-name">* * * * *</h1>
+            <figure>
+              <audio class="audio"src=""><a href=""></a>
+              </audio>
+                <div class="audio-wrapper">
+                  <div id="controls">
+                    <div class="play">
+                      <i class = "fa fa-play-circle fa-5x"></i>
+                    </div>
+                    <div class="audio-track"><div class="time"></div></div>
+                  </div>
+                </div>
+            </audio>
+            </figure>
+          </div>
+        </div>
+        <div class="answer-wrapper">
+          <div class="answers-list">
+            <ul class="questions-list">
+              <li class="list" id="1">
+                <input type="radio" name="answer"  class="answer">
+                <label for="a" id="a_text">Question</label>
+              </li>
+              <li class="list" id="2">
+                <input type="radio" name="answer"  class="answer">
+                <label for="b" id="b_text">Question</label>
+              </li>
+              <li class="list" id="3" >
+                <input type="radio" name="answer" class="answer">
+                <label for="c" id="c_text">Question</label>
+              </li>
+              <li class="list" id="4">
+                <input type="radio" name="answer"  class="answer">
+                <label for="d" id="d_text">Question</label>
+              </li>
+              <li class="list" id="5">
+                <input type="radio" name="answer"  class="answer">
+                <label for="e" id="e_text">Question</label>
+              </li>
+              <li class="list" id="6">
+                <input type="radio" name="answer"  class="answer">
+                <label for="f" id="f_text">Question</label>
+              </li>
+            </ul>
+          </div>
+          <div class="birds-data">
+            <div class="headerData">
+                <div class="imgData"></div>
+                <div class="nameData">
+                    <div class="birdsNameData"></div>
+                    <div class="latinNameData"></div>
+                </div>
+            </div>
+            <div class="footerDescription"></div>
+          </div>
+        </div>
+        <div>
+            <button id="submit">Submit</button>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-item "><span class="first-span"> <a class="nav-link media-item" href="https://github.com/olvsivkov" target="_blank"> &copy; 2022  github</a></span></div>
+    </footer>
+<script src="../dist/bandle.js"></script>
+</body>
+</html>
