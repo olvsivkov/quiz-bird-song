@@ -62,16 +62,29 @@ list.forEach((el) => el.addEventListener('click', () => {
   function getSelected() {
     return el.id;
   }
-  if (randomNumFirstPage === +getSelected() || randomNumOtherPage === +getSelected()) {
+  function getDataWhenAnswerOk(){
     score += 1;
     userScore.innerHTML = `scores ${score} / 6`;
     sourceImg.src = getBirdImg(currentQuiz, +getSelected());
     correctBirdName.innerHTML = getBirdName(currentQuiz, +getSelected());
-    el.classList.add('active-list');
     console.log('Correct!');
-  } else {
-    console.log('No!');
-    el.classList.add('active-list-none');
+    el.classList.add('active-list');
+  }
+  if (currentQuiz === 0) {
+    if (randomNumFirstPage === +getSelected()) {
+      getDataWhenAnswerOk()
+    } else {
+      console.log('No!');
+      el.classList.add('active-list-none');
+    }
+  }
+  if(currentQuiz > 0) {
+    if (randomNumOtherPage === +getSelected()) {
+      getDataWhenAnswerOk()
+    } else {
+      console.log('No!');
+      el.classList.add('active-list-none');
+    }
   }
 }));
 
@@ -188,3 +201,7 @@ function actionsBtnPlay() {
     btnPlay.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
   }
 }
+function getSelected() {
+  throw new Error('Function not implemented.');
+}
+
